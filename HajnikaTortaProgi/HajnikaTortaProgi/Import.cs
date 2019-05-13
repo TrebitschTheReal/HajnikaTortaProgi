@@ -9,52 +9,50 @@ namespace HajnikaTortaProgi
 {
     class Import
     {
-        private StringOperations stringops = new StringOperations();
-
-        private string name;
-        private int quantity;
-        private string unitType;
-        private int unitPrice;
-        private int numberOfLines;
+        private static int numberOfMaterials;
+        private string[] materialName = new string[numberOfMaterials];
+        private string[] materialUnitType = new string[numberOfMaterials];
+        private int[] materialUnitPrice = new int[numberOfMaterials];
 
         public Import()
         {
-            this.numberOfLines = LineCounter();
-            this.name = GetTheName();
+            numberOfMaterials = MaterialCounter();
+            GenerateMaterialData();
 
         }
-        public string Name
+        public string[] MaterialName
         {
-            get { return name; }
+            get { return materialName; }
         }
-        public int Quantity
+        public string[] MaterialUnitType
         {
-            get { return quantity; }
+            get { return materialUnitType; }
         }
-        public string UnitType
+        public int[] MaterialUnitPrice
         {
-            get { return unitType; }
-        }
-        public int UnitPrice
-        {
-            get { return unitPrice; }
-        }
-        public int NumberOfLines
-        {
-            get { return numberOfLines; }
+            get { return materialUnitPrice; }
         }
 
-        private string GetTheName()
+
+        public int NumberOfMaterials
         {
-            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyagok.csv", Encoding.Default);
-            string firstLine = sr.ReadLine();
-            string secondLine = sr.ReadLine();
-
-            string name = stringops.StringUntilFirstSpace(secondLine);
-            return name;
-
+            get { return numberOfMaterials; }
         }
-        private int LineCounter()
+
+        public string StringUntilFirstSpace(string text)
+        {
+            string textPiece = "";
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] != ' ')
+                {
+                    textPiece += text[i];
+                }
+            }
+            return textPiece;
+        }
+        public int MaterialCounter()
         {
             int numberOfLines = 0;
 
@@ -69,5 +67,25 @@ namespace HajnikaTortaProgi
             sr.Close();
             return numberOfLines;
         }
+        private void GenerateMaterialData()
+        {
+            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyagok.csv", Encoding.Default);
+            int cnt = 0;
+            sr.ReadLine();
+
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                string[] elements = line.Split(' ');
+
+                materialName[cnt] = elements[cnt];
+                materialUnitType[cnt] = elements[cnt+1];
+                materialUnitPrice[cnt] = int.Parse(elements[cnt+2]);
+
+                cnt++;
+            }
+            sr.Close();
+        }
+
     }
 }

@@ -10,20 +10,23 @@ namespace HajnikaTortaProgi
     class DataBase
     {
         private static Import import = new Import();
-        private RawMaterial[] materials = new RawMaterial[import.NumberOfLines];
+        private RawMaterial[] materials = new RawMaterial[import.NumberOfMaterials];
 
         public DataBase()
         {
             GetTheMaterialData();
 
         }
+        public RawMaterial[] Materials
+        {
+            get { return materials; }
+        }
         private void GetTheMaterialData()
         {
-            string name = import.Name;
-            string unitType;
-            int unitPrice;
-
-
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i] = new RawMaterial(import.MaterialName[i], import.MaterialUnitType[i], import.MaterialUnitPrice[i]);
+            }
         }
     }
 }

@@ -9,23 +9,25 @@ namespace HajnikaTortaProgi
     class RawMaterial
     {
         private string name = "";
-        private int quantity = 0;
         private string unitType = "";
         private int unitPrice = 0;
+        private int unitQuantity = 0;
 
-        public RawMaterial(string name, string unitType, int unitPrice)
+        public RawMaterial(string name, string unitType, int unitPrice, int materialQuantity)
         {
             this.name = name;
             this.unitType = unitType;
             this.unitPrice = unitPrice;
+            this.unitQuantity = materialQuantity;
         }
         public string Name
         {
             get { return name; }
         }
-        public int Quantity
+        public int UnitQuantity
         {
-            get { return quantity; }
+            get { return unitQuantity; }
+            set { unitQuantity = value; }
         }
         public string UnitType
         {

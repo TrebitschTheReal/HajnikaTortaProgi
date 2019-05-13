@@ -11,16 +11,10 @@ namespace HajnikaTortaProgi
         static void Main()
         {
             DataBase data = new DataBase();
+            OpearationsWithMaterials ops = new OpearationsWithMaterials(data);
+            Export export = new Export();
 
-            for (int i = 0; i < data.Materials.Capacity; i++)
-            {
-                Console.WriteLine("{0}. {1}",i ,data.Materials[i].Name);
-            }
-
-            Console.ReadLine();
-
-
-
+            export.ExportOutToCsv(data);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace HajnikaTortaProgi
         private List<string> materialName = new List<string>();
         private List<string> materialUnitType = new List<string>();
         private List<int> materialUnitPrice = new List<int>();
+        private List<int> materialUnitQuantity = new List<int>();
 
         public Import()
         {
@@ -31,6 +32,10 @@ namespace HajnikaTortaProgi
         public List<int> MaterialUnitPrice
         {
             get { return materialUnitPrice; }
+        }
+        public List<int> MaterialUnitQuantity
+        {
+            get { return materialUnitQuantity; }
         }
 
 
@@ -80,6 +85,7 @@ namespace HajnikaTortaProgi
                 materialName.Add(elements[0]);
                 materialUnitType.Add(elements[1]);
                 materialUnitPrice.Add(int.Parse(elements[2]));
+                materialUnitQuantity.Add(int.Parse(elements[3]));
             }
             sr.Close();
         }

@@ -25,7 +25,7 @@ namespace HajnikaTortaProgi
         {
             for (int i = 0; i < import.MaterialName.Count; i++)
             {
-                materials.Add(new RawMaterial(import.MaterialName[i], import.MaterialUnitType[i], import.MaterialUnitPrice[i]));
+                materials.Add(new RawMaterial(import.MaterialName[i], import.MaterialUnitType[i], import.MaterialUnitPrice[i], import.MaterialUnitQuantity[i]));
             }
         }
     }

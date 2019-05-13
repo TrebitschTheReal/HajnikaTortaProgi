@@ -10,9 +10,9 @@ namespace HajnikaTortaProgi
     class Import
     {
         private static int numberOfMaterials;
-        private string[] materialName = new string[numberOfMaterials];
-        private string[] materialUnitType = new string[numberOfMaterials];
-        private int[] materialUnitPrice = new int[numberOfMaterials];
+        private List<string> materialName = new List<string>();
+        private List<string> materialUnitType = new List<string>();
+        private List<int> materialUnitPrice = new List<int>();
 
         public Import()
         {
@@ -20,15 +20,15 @@ namespace HajnikaTortaProgi
             GenerateMaterialData();
 
         }
-        public string[] MaterialName
+        public List<string> MaterialName
         {
             get { return materialName; }
         }
-        public string[] MaterialUnitType
+        public List<string> MaterialUnitType
         {
             get { return materialUnitType; }
         }
-        public int[] MaterialUnitPrice
+        public List<int> MaterialUnitPrice
         {
             get { return materialUnitPrice; }
         }
@@ -70,19 +70,16 @@ namespace HajnikaTortaProgi
         private void GenerateMaterialData()
         {
             StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyagok.csv", Encoding.Default);
-            int cnt = 0;
             sr.ReadLine();
 
             while (!sr.EndOfStream)
             {
                 string line = sr.ReadLine();
-                string[] elements = line.Split(' ');
+                string[] elements = line.Split(';');
 
-                materialName[cnt] = elements[cnt];
-                materialUnitType[cnt] = elements[cnt+1];
-                materialUnitPrice[cnt] = int.Parse(elements[cnt+2]);
-
-                cnt++;
+                materialName.Add(elements[0]);
+                materialUnitType.Add(elements[1]);
+                materialUnitPrice.Add(int.Parse(elements[2]));
             }
             sr.Close();
         }

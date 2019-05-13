@@ -9,23 +9,23 @@ namespace HajnikaTortaProgi
 {
     class DataBase
     {
-        private static Import import = new Import();
-        private RawMaterial[] materials = new RawMaterial[import.NumberOfMaterials];
+        private List<RawMaterial> materials = new List<RawMaterial>();
 
         public DataBase()
         {
-            GetTheMaterialData();
+            Import import = new Import();
+            GetTheMaterialData(import);
 
         }
-        public RawMaterial[] Materials
+        public List<RawMaterial> Materials
         {
             get { return materials; }
         }
-        private void GetTheMaterialData()
+        private void GetTheMaterialData(Import import)
         {
-            for (int i = 0; i < materials.Length; i++)
+            for (int i = 0; i < import.MaterialName.Count; i++)
             {
-                materials[i] = new RawMaterial(import.MaterialName[i], import.MaterialUnitType[i], import.MaterialUnitPrice[i]);
+                materials.Add(new RawMaterial(import.MaterialName[i], import.MaterialUnitType[i], import.MaterialUnitPrice[i]));
             }
         }
     }

@@ -12,15 +12,12 @@ namespace HajnikaTortaProgi
         {
             DataBase data = new DataBase();
 
-            Console.WriteLine(data.Materials[0].Name);
-            Console.WriteLine(data.Materials[0].UnitType);
-            Console.WriteLine(data.Materials[0].UnitPrice);
+            for (int i = 0; i < data.Materials.Capacity; i++)
+            {
+                Console.WriteLine("{0}. {1}",i ,data.Materials[i].Name);
+            }
 
-            Console.WriteLine("\n");
-
-            Console.WriteLine(data.Materials[1].Name);
-            Console.WriteLine(data.Materials[2].UnitType);
-            Console.WriteLine(data.Materials[3].UnitPrice);
+            Console.ReadLine();
 
 
 

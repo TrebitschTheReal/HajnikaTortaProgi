@@ -9,7 +9,7 @@ namespace HajnikaTortaProgi
 {
     static class Export
     {
-        public static string accesPath = "C:\\HajnikaTortaProgi\\alapanyagok.csv";
+        public static string accesPath = "E:\\HajnikaTortaProgi\\alapanyagok.csv";
 
         public static void ExportOutToCsv(DataBase data)
         {

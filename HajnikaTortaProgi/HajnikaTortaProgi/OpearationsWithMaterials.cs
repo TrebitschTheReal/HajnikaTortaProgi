@@ -30,6 +30,7 @@ namespace HajnikaTortaProgi
         {
             int cursorDefault = 18;
             int cursorNewLine = 0;
+            int cursorToAllPrice = 50;
 
             int cnt = 1;
 
@@ -37,10 +38,12 @@ namespace HajnikaTortaProgi
             {
                 Console.Write("{0}. {1}", cnt, data.Materials[i].Name);
                 Console.SetCursorPosition(cursorDefault, cursorNewLine);
-                Console.Write("Jelenlegi mennyiség: {0} {1}      Alapanyag ára: {2} Ft.", data.Materials[i].UnitQuantity, data.Materials[i].UnitType, data.Materials[i].ActualPrice);
-            cursorNewLine++;
+                Console.Write("Jelenlegi mennyiség: {0} {1} ", data.Materials[i].UnitQuantity, data.Materials[i].UnitType);
+                Console.SetCursorPosition(cursorToAllPrice, cursorNewLine);
+                Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].ActualPrice);
+                cursorNewLine++;
                 Console.SetCursorPosition(0, cursorNewLine);
-                Console.WriteLine("===========================================================================");
+                Console.WriteLine("==========================================================================");
                 cursorNewLine++;
                 Console.SetCursorPosition(0, cursorNewLine);
                 cnt++;
@@ -54,6 +57,7 @@ namespace HajnikaTortaProgi
             choosedElement -= 1;
             int cursorDefault = 18;
             int cursorNewLine = 0;
+            int cursorToAllPrice = 50;
 
             for (int i = 0; i < data.Materials.Count; i++)
             {
@@ -62,10 +66,12 @@ namespace HajnikaTortaProgi
                     Console.Clear();
                     Console.Write(" {0}", data.Materials[i].Name);
                     Console.SetCursorPosition(cursorDefault, cursorNewLine);
-                    Console.Write("Jelenlegi mennyiség: {0} {1}        Alapanyag ára: {2}", data.Materials[i].UnitQuantity, data.Materials[i].UnitType, data.Materials[i].ActualPrice);
+                    Console.Write("Jelenlegi mennyiség: {0} {1}", data.Materials[i].UnitQuantity, data.Materials[i].UnitType);
+                    Console.SetCursorPosition(cursorToAllPrice, cursorNewLine);
+                    Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].ActualPrice);
                     cursorNewLine++;
                     Console.SetCursorPosition(0, cursorNewLine);
-                    Console.WriteLine("===========================================================================");
+                    Console.WriteLine("==========================================================================");
                     cursorNewLine++;
                     Console.SetCursorPosition(0, cursorNewLine);
                     WhatOperationToDo(data, choosedElement);

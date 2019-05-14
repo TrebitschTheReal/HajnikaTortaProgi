@@ -20,7 +20,7 @@ namespace HajnikaTortaProgi
             StreamWriter sw = new StreamWriter(accesPath, false, Encoding.Default);
 
             sw.WriteLine("Név;EgységTípus;Egységár;Mennyiség");
-            for (int i = 0; i < data.Materials.Capacity; i++)
+            for (int i = 0; i < data.Materials.Capacity-1; i++)
             {
                 sw.Write(data.Materials[i].Name + ";");
                 sw.Write(data.Materials[i].UnitType + ";");

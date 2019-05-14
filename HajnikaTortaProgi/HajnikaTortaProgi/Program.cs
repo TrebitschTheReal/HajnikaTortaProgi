@@ -15,6 +15,8 @@ namespace HajnikaTortaProgi
             Export export = new Export();
 
             export.ExportOutToCsv(data);
+
+            Console.ReadKey();
         }
     }
 }

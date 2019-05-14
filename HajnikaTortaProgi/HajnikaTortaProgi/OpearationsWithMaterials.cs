@@ -10,7 +10,13 @@ namespace HajnikaTortaProgi
     {
         public OpearationsWithMaterials(DataBase data)
         {
-            data.Materials[0].UnitQuantity += 2;
+            int cnt = 1;
+
+            for (int i = 0; i < data.Materials.Count; i++)
+            {
+                Console.WriteLine("{0}. {1}", cnt, data.Materials[i].Name);
+                cnt++;
+            }
         }
     }
 }

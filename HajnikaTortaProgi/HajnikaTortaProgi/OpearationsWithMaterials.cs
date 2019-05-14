@@ -10,7 +10,7 @@ namespace HajnikaTortaProgi
     {
         public OpearationsWithMaterials(DataBase data)
         {
-            data.Materials[0].UnitQuantity = +2;
+            data.Materials[0].UnitQuantity += 2;
         }
     }
 }

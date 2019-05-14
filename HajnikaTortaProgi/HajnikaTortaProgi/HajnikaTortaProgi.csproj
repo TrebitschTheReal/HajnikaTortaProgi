@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DataBase.cs" />
     <Compile Include="Import.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="OpearationsWithMaterials.cs" />
     <Compile Include="RawMaterial.cs" />
     <Compile Include="Export.cs" />

@@ -7,15 +7,11 @@ using System.IO;
 
 namespace HajnikaTortaProgi
 {
-    class Export
+    static class Export
     {
-        private string accesPath = "E:\\HajnikaTortaProgi\\alapanyagok.csv";
+        public static string accesPath = "E:\\HajnikaTortaProgi\\alapanyagok.csv";
 
-        public Export()
-        {
-
-        }
-        public void ExportOutToCsv(DataBase data)
+        public static void ExportOutToCsv(DataBase data)
         {
             StreamWriter sw = new StreamWriter(accesPath, false, Encoding.Default);
 
@@ -29,7 +25,7 @@ namespace HajnikaTortaProgi
                 sw.WriteLine();
             }
             sw.Close();
-            Console.WriteLine("Elmentve: {0}", accesPath);
+            Console.WriteLine("\n\n" + "Elmentve: {0}", accesPath);
         }
     }
 } 

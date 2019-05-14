@@ -12,10 +12,15 @@ namespace HajnikaTortaProgi
         {
             DataBase data = new DataBase();
             OpearationsWithMaterials ops = new OpearationsWithMaterials(data);
-            Export export = new Export();
 
-            export.ExportOutToCsv(data);
 
+
+
+
+
+
+            Export.ExportOutToCsv(data);
+            Console.Write("Nyomj egy gombot a kilépéshez . . . ");
             Console.ReadKey();
         }
     }

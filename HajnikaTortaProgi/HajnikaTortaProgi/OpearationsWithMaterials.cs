@@ -10,11 +10,21 @@ namespace HajnikaTortaProgi
     {
         public OpearationsWithMaterials(DataBase data)
         {
-            while (true)
+            try
             {
-                DisplayMaterials(data);
-                MenuSwitch(data);
+                while (true)
+                {
+                    DisplayMaterials(data);
+                    MenuSwitch(data);
+                }
             }
+            catch
+            {
+                Console.WriteLine("Bocsi, de csak számokat fogadok el, ne akassz ki kérlek nyúsz");
+                Console.WriteLine("Üss entert a folytatáshoz. . . ");
+                Console.ReadKey();
+            }
+
 
         }
         public void DisplayMaterials(DataBase data)
@@ -36,6 +46,7 @@ namespace HajnikaTortaProgi
                 Console.SetCursorPosition(0, cursorNewLine);
                 cnt++;
             }
+            Console.Write("\nKérlek válassz: ");
         }
         public void MenuSwitch(DataBase data)
         {

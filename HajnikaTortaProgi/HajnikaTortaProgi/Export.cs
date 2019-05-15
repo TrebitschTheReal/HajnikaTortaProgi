@@ -9,7 +9,7 @@ namespace HajnikaTortaProgi
 {
     class Export
     {
-        private static string accesPath = "E:\\HajnikaTortaProgi\\autosave_latestCake.csv";
+        private static string accesPath = "autosave_latestCake.csv";
 
         public static void AutoSave(DataBase data)
         {
@@ -26,14 +26,15 @@ namespace HajnikaTortaProgi
                 sw.WriteLine();
             }
             sw.Close();
-            Console.WriteLine("\n\n" + "Auto mentés: {0}", accesPath);
+            Console.WriteLine("\n" + "Auto mentés: {0}", accesPath);
         }
 
         public static void SaveTheCake(DataBase data)
         {
+            Console.WriteLine();
             Console.Write("Mi legyen a torta neve?: ");
             string cakeName = Console.ReadLine();
-            string newAccesPath = "E:\\HajnikaTortaProgi\\" + cakeName + ".csv";
+            string newAccesPath = cakeName + ".csv";
 
             StreamWriter sw = new StreamWriter(newAccesPath, false, Encoding.Default);
 
@@ -48,7 +49,9 @@ namespace HajnikaTortaProgi
                 sw.WriteLine();
             }
             sw.Close();
-            Console.WriteLine("\n\n" + "Elmentve: {0}", newAccesPath);
+            Console.WriteLine("\n" + "Elmentve: {0}", newAccesPath);
+            Console.Write("\n" + "Nyomj egy gombot a kilépéshez . . . ");
+            Console.ReadKey();
 
         }
     }

@@ -28,6 +28,9 @@ namespace HajnikaTortaProgi
         }
         public void DisplayMaterials(DataBase data)
         {
+
+            Console.Clear();
+
             int cursorDefault = 18;
             int cursorNewLine = 0;
             int cursorToAllPrice = 50;
@@ -48,6 +51,9 @@ namespace HajnikaTortaProgi
                 Console.SetCursorPosition(0, cursorNewLine);
                 cnt++;
             }
+
+            Console.WriteLine("==========================================================================");
+            Console.WriteLine("0. Kilépés");
             Console.Write("\nKérlek válassz: ");
         }
         public void MenuSwitch(DataBase data)
@@ -77,6 +83,23 @@ namespace HajnikaTortaProgi
                     WhatOperationToDo(data, choosedElement);
                 }
 
+            }
+
+            if (choosedElement == -1)
+            {
+                Console.Clear();
+                Console.Write("Biztos ki akarsz lépni? I / N : ");
+                char choose = Convert.ToChar(Console.ReadLine());
+                if (choose == 'i')
+                {
+                    Export.SaveTheCake(data);
+                    Environment.Exit(0);
+                }
+                else if (choose == 'n')
+                {
+                    DisplayMaterials(data);
+                    MenuSwitch(data);
+                }
             }
         }
         public void WhatOperationToDo(DataBase data, int materialIndex)

@@ -20,8 +20,8 @@ namespace HajnikaTortaProgi
             }
             catch
             {
-                Console.WriteLine("Bocsi, de csak számokat fogadok el, ne akassz ki kérlek nyúsz");
-                Console.WriteLine("Üss entert a folytatáshoz. . . ");
+                Console.WriteLine("Bocsi, de én most kilépek, mert Error. Vagy valami ilyesmi");
+                Console.WriteLine();
             }
 
 
@@ -40,7 +40,7 @@ namespace HajnikaTortaProgi
                 Console.SetCursorPosition(cursorDefault, cursorNewLine);
                 Console.Write("Jelenlegi mennyiség: {0} {1} ", data.Materials[i].UnitQuantity, data.Materials[i].UnitType);
                 Console.SetCursorPosition(cursorToAllPrice, cursorNewLine);
-                Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].ActualPrice);
+                Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].OverallPrice);
                 cursorNewLine++;
                 Console.SetCursorPosition(0, cursorNewLine);
                 Console.WriteLine("==========================================================================");
@@ -68,7 +68,7 @@ namespace HajnikaTortaProgi
                     Console.SetCursorPosition(cursorDefault, cursorNewLine);
                     Console.Write("Jelenlegi mennyiség: {0} {1}", data.Materials[i].UnitQuantity, data.Materials[i].UnitType);
                     Console.SetCursorPosition(cursorToAllPrice, cursorNewLine);
-                    Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].ActualPrice);
+                    Console.Write("Alapanyag ára: {0} Ft", data.Materials[i].OverallPrice);
                     cursorNewLine++;
                     Console.SetCursorPosition(0, cursorNewLine);
                     Console.WriteLine("==========================================================================");
@@ -82,8 +82,11 @@ namespace HajnikaTortaProgi
         public void WhatOperationToDo(DataBase data, int materialIndex)
         {
             Console.WriteLine("Mit szeretnél csinálni?");
+            Console.WriteLine();
             Console.WriteLine("1. Hozzáadni");
             Console.WriteLine("2. Elvenni");
+            Console.WriteLine("");
+            Console.WriteLine("3. Vissza");
             Console.Write("\n" + "Válassz: ");
 
             int menuChoose = 0;
@@ -93,15 +96,19 @@ namespace HajnikaTortaProgi
             {
                 Console.Write("\n" + "Kérlek írd be mennyit fogsz hozzáadni: ");
                 OperationAdd(data, materialIndex);
-                Export.ExportOutToCsv(data);
+                Export.AutoSave(data);
                 Console.Clear();
             }
             else if(menuChoose == 2)
             {
                 Console.Write("\n" + "Kérlek írd be mennyit vennél el: ");
                 OperationSubtract(data, materialIndex);
-                Export.ExportOutToCsv(data);
+                Export.AutoSave(data);
                 Console.Clear();
+            }
+            else if(menuChoose == 3)
+            {
+
             }
             Console.Clear();
         }

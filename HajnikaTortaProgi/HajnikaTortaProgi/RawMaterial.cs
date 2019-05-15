@@ -12,7 +12,7 @@ namespace HajnikaTortaProgi
         private string unitType = "";
         private int unitPrice = 0;
         private int unitQuantity = 0;
-        private int actualPrice = 0;
+        private int overallPrice = 0;
 
         public RawMaterial(string name, string unitType, int unitPrice, int materialQuantity)
         {
@@ -20,7 +20,7 @@ namespace HajnikaTortaProgi
             this.unitType = unitType;
             this.unitPrice = unitPrice;
             this.unitQuantity = materialQuantity;
-            this.actualPrice = unitQuantity * unitPrice;
+            this.overallPrice = unitQuantity * unitPrice;
         }
         public string Name
         {
@@ -39,9 +39,9 @@ namespace HajnikaTortaProgi
         {
             get { return unitPrice; }
         }
-        public int ActualPrice
+        public int OverallPrice
         {
-            get { return actualPrice; }
+            get { return unitQuantity * unitPrice; }
         }
 
     }

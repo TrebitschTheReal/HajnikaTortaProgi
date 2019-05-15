@@ -61,7 +61,7 @@ namespace HajnikaTortaProgi
         {
             int numberOfLines = 0;
 
-            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyagok.csv", Encoding.Default);
+            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyag_data\alapanyagok.csv", Encoding.Default);
             while (!sr.EndOfStream)
             {
                 sr.ReadLine();
@@ -74,7 +74,7 @@ namespace HajnikaTortaProgi
         }
         private void GenerateMaterialData()
         {
-            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyagok.csv", Encoding.Default);
+            StreamReader sr = new StreamReader(@"E:\HajnikaTortaProgi\alapanyag_data\alapanyagok.csv", Encoding.Default);
             sr.ReadLine();
 
             while (!sr.EndOfStream)

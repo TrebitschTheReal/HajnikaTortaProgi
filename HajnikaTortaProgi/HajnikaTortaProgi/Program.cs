@@ -19,7 +19,7 @@ namespace HajnikaTortaProgi
 
 
 
-            Export.ExportOutToCsv(data);
+            Export.AutoSave(data);
             Console.Write("Nyomj egy gombot a kilépéshez . . . ");
             Console.ReadKey();
         }

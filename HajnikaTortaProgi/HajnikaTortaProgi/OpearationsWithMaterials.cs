@@ -31,7 +31,7 @@ namespace HajnikaTortaProgi
 
             Console.Clear();
 
-            int cursorDefault = 18;
+            int cursorDefault = 20;
             int cursorNewLine = 0;
             int cursorToAllPrice = 50;
 
